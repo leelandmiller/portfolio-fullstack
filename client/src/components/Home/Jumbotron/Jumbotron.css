@@ -1,0 +1,22 @@
+#jumbo {
+    height: 90vh !important;
+    margin-bottom: 0px;
+    z-index: -1;
+}
+
+#hero-section {
+    filter: brightness(50%);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.my-name {
+    font-family: 'Montez', cursive;
+    font-size: 8rem;
+}
+
+#divider {
+    background-color: white;
+    margin-top: -3px;
+}

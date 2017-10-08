@@ -1,0 +1,23 @@
+.footer-height {
+    height: 180px;
+}
+
+.footer-margin {
+    margin-top: 80px;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-link:hover {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.copyright {
+    height: 70px;
+}
+
+.copyright-p {
+    margin-bottom: 0px;
+}

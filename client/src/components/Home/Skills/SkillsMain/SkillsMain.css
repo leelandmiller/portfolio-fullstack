@@ -1,0 +1,72 @@
+.about-section {
+    margin-top: 20px;
+    /*margin-bottom: 80px;*/
+}
+
+.skills-ic-row {
+    margin-top: 40px;
+}
+
+.skills-row {
+    margin-top: -10px;
+}
+
+.skills-col {
+    margin: 110px 0px;
+}
+
+.skill-info {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.skill-heading {
+    margin-bottom: 20px;
+}
+
+.skill-ic {
+    width: 50%;
+}
+
+.mongo-ic {
+    width: 30%;
+}
+
+.git-ic {
+    width: 40%;
+}
+
+.ic-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.ic-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#front-end-info {
+    text-align: right;
+}
+
+.fade-color {
+    display: none;
+}
+
+.frontend-code-ic {
+    width: 80%;
+    display: block;
+    margin: 14px auto;
+}
+.backend-code-ic {
+    width: 60%;
+    display: block;
+    margin: 14px auto;
+}
+.menu-open-button:hover {
+    cursor: default;
+}
