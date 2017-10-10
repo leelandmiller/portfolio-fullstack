@@ -1,0 +1,103 @@
+.project-container {
+    min-height: 500px;
+    padding: 20px 0px 10px 0px;
+}
+
+.project-img-container {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.project-img {
+    width: 80%;
+}
+
+.project-info-container {
+    color: white;
+    /*text-align: right;*/
+    width: 65%;
+    margin: 0 auto;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.buttons a {
+    margin: 0px 10px;
+}
+
+.demo-btn:hover {
+    color: #000;
+}
+
+.green-gradient {
+    background: green; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(right bottom, mediumseagreen, #09edb7); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(top left, mediumseagreen, #09edb7); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(top left, mediumseagreen, #09edb7); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to top left, mediumseagreen, #09edb7); /* Standard syntax (must be last) */
+}
+
+.turquoise-gradient {
+    background: darkturquoise; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(right bottom, darkturquoise, #1becc0); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(top left, darkturquoise, #1becc0); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(top left, darkturquoise, #1becc0); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to top left, darkturquoise, #1becc0); /* Standard syntax (must be last) */
+}
+
+.blue-gradient {
+    background: dodgerblue; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(right bottom, dodgerblue, #1bbaec); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(top left, dodgerblue, #1bbaec); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(top left, dodgerblue, #1bbaec); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to top left, dodgerblue, #1bbaec); /* Standard syntax (must be last) */
+}
+
+.red-gradient {
+    background: tomato; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(right bottom, tomato, #fb8553); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(top left, tomato, #fb8553); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(top left, tomato, #fb8553); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to top left, tomato, #fb8553); /* Standard syntax (must be last) */
+}
+
+.purple-gradient {
+    background: blueviolet; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(right bottom, blueviolet, #d279fc); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(top left, blueviolet, #d279fc); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(top left, blueviolet, #d279fc); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to top left, blueviolet, #d279fc); /* Standard syntax (must be last) */
+}
+
+.tan-gradient {
+    background: tan; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(right bottom, tan, #fce7b7); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(top left, tan, #fce7b7); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(top left, tan, #fce7b7); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to top left, tan, #fce7b7); /* Standard syntax (must be last) */
+}
+
+.salmon-gradient {
+    background: salmon; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(right bottom, salmon, #f7aa99); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(top left, salmon, #f7aa99); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(top left, salmon, #f7aa99); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to top left, salmon, #f7aa99); /* Standard syntax (must be last) */
+}
+
+
+@media screen and (max-width: 768px) {
+    .project-info-container {
+        text-align: center !important;
+        width: 100%;
+        margin: 0px;
+    }
+}

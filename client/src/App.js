@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Nav from './components/Common/Nav/NavMain';
 import HomeMain from './components/Home/HomeMain';
+import PortfolioMain from './components/Portfolio/PortfolioMain';
+import Login from './components/Admin/Login';
 import Footer from './components/Common/Footer';
 
 class App extends Component {
@@ -17,7 +19,7 @@ class App extends Component {
 
     navLinks = [
         { 'name': 'About', 'url': '/' },
-        { 'name': 'Work', 'url': '/' },
+        { 'name': 'Work', 'url': '/work' },
         { 'name': 'Contact', 'url': '/' },
     ]
 
@@ -72,13 +74,21 @@ class App extends Component {
             <div>
                 <Nav isTransparent={this.state.navIsTransparent} links={this.navLinks} />
                 <Router>
-                    <Route exact path='/' render={() => (
-                        <HomeMain
-                            navIsTransparent={this.state.navIsTransparent}
-                            menu1Check={this.state.menu1Check}
-                            menu2Check={this.state.menu2Check}
-                        />
-                    )}/>
+                    <div>
+                        <Route exact path='/' render={() => (
+                            <HomeMain
+                                navIsTransparent={this.state.navIsTransparent}
+                                menu1Check={this.state.menu1Check}
+                                menu2Check={this.state.menu2Check}
+                            />
+                        )}/>
+                        <Route exact path='/work' render={() => (
+                            <PortfolioMain />
+                        )}/>
+                        <Route exact path='/admin' render={() => (
+                            <Login />
+                        )}/>
+                    </div>
                 </Router>
                 <Footer links={this.navLinks} />
             </div>

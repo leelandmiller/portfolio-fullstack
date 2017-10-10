@@ -1,12 +1,12 @@
 import React from 'react';
-import Jumbotron from '../Jumbotron';
+import Jumbotron from '../../Common/Jumbotron';
 import Divider from '../../Common/Divider';
 import ProfileMain from '../Profile/ProfileMain';
 import SectionBreaker from '../../Common/SectionBreaker';
 import SkillsMain from '../Skills/SkillsMain';
 import Availability from '../Availability';
 
-const HomeMain = (props) => {
+const HomeMain = props => {
 
     let frontEndSkills = [
         { name: 'HTML5', ic: 'html-ic', },
@@ -28,7 +28,7 @@ const HomeMain = (props) => {
 
     return (
         <div>
-            <Jumbotron />
+            <Jumbotron bg={'url(assets/images/coding.jpg)'} page={'leeland'} />
             <Divider />
             <ProfileMain/>
             <SectionBreaker />
