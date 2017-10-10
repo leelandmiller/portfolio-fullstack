@@ -33,7 +33,7 @@ const Project = props => {
     }
 
     return (
-        <div className='row salmon-gradient project-container'>
+        <div className='row green-gradient project-container'>
             <div className={imgColClasses}>
                 <div className='project-img-container'>
                     <img src='assets/images/convertr_tablet.png' className='project-img'/>
