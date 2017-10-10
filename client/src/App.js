@@ -6,7 +6,10 @@ import Nav from './components/Common/Nav/NavMain';
 import HomeMain from './components/Home/HomeMain';
 import PortfolioMain from './components/Portfolio/PortfolioMain';
 import Login from './components/Admin/Login';
+import Dashboard from './components/Admin/Dashboard';
 import Footer from './components/Common/Footer';
+
+import authAPI from './utils/authAPI';
 
 class App extends Component {
 
@@ -14,7 +17,8 @@ class App extends Component {
         // set state here
         navIsTransparent: true,
         menu1Check: false,
-        menu2Check: false
+        menu2Check: false,
+        isLoggedIn: false
     }
 
     navLinks = [
@@ -25,6 +29,16 @@ class App extends Component {
 
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
+
+        authAPI.getCurrentUser().then(currentuser => {
+            console.log(currentuser);
+
+            if (currentuser.data) {
+                this.setState({
+                    isLoggedIn: true
+                });
+            }
+        });
     }
 
     componentWillUnmount() {
@@ -86,7 +100,7 @@ class App extends Component {
                             <PortfolioMain />
                         )}/>
                         <Route exact path='/admin' render={() => (
-                            <Login />
+                            this.state.isLoggedIn ? <Dashboard/> : <Login/>
                         )}/>
                     </div>
                 </Router>

@@ -17,4 +17,10 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
+router.post('/signup', (req, res) => {
+    userController.addUser(req.body.newUser).then(newUser => {
+        res.json(newUser);
+    });
+});
+
 module.exports = router;

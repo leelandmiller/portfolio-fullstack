@@ -2,7 +2,10 @@ const express    = require('express');
 const bodyParser = require('body-parser');
 const mongoose   = require('mongoose');
 const passport   = require('passport');
+const session    = require('express-session');
+const secret     = require('./config/keys').SESSION_SECRET;
 const routes     = require('./routes/routes');
+const { User }   = require('./models');
 
 const PORT = process.env.PORT || 3001;
 const app  = express();
