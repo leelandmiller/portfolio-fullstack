@@ -54,7 +54,10 @@ class App extends Component {
 
     handleScroll = event => {
 
-        if (document.documentElement.scrollTop > 150) {
+        // console.log(window.scrollY);
+        // document.documentElement.scrollTop
+
+        if (window.scrollY > 150) {
             // toggle state for nav
             if (this.state.navIsTransparent) {
                 this.setState((prevState, props) => ({
@@ -71,7 +74,7 @@ class App extends Component {
             }
         }
 
-        if (document.documentElement.scrollTop > 950) {
+        if (window.scrollY > 950) {
             // toggle state for front end skills
             if (!this.state.menu1Check) {
                 this.setState((prevState, props) => ({
@@ -80,7 +83,7 @@ class App extends Component {
             }
         }
 
-        if (document.documentElement.scrollTop > 1300) {
+        if (window.scrollY > 1300) {
             // toggle state for back end skills
             if (!this.state.menu2Check) {
                 this.setState((prevState, props) => ({
