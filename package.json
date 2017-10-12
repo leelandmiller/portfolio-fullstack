@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "concur": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
-    "deploy": "npm run build && git add . && git commit -m \"Production Build\" && git push heroku master",
+    "deploy": "yarn build && git add . && git commit -m \"Production Build\" && git push heroku master",
     "build": "cd client && npm run build"
   },
   "keywords": [
