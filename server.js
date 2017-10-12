@@ -2,8 +2,8 @@ const express    = require('express');
 const bodyParser = require('body-parser');
 const mongoose   = require('mongoose');
 const passport   = require('passport');
-const session    = process.env.SESSION_SECRET || require('express-session');
-const secret     = require('./config/keys').SESSION_SECRET;
+const session    = require('express-session');
+const secret     = process.env.SESSION_SECRET || require('./config/keys').SESSION_SECRET;
 const routes     = require('./routes/routes');
 const { User }   = require('./models');
 
