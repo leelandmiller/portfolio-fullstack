@@ -4,6 +4,7 @@
   "description": "leeland's portfolio",
   "main": "server.js",
   "scripts": {
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "concur": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
