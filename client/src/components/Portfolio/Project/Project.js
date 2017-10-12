@@ -25,18 +25,11 @@ const Project = props => {
         'text-left': props.odd
     });
 
-    let btnMargin = '';
-    if (props.odd) {
-        btnMargin = 'margin-right: 20px';
-    } else {
-        btnMargin = 'margin-left: 20px';
-    }
-
     return (
         <div className='row green-gradient project-container'>
             <div className={imgColClasses}>
                 <div className='project-img-container'>
-                    <img src='assets/images/convertr_tablet.png' className='project-img'/>
+                    <img src='assets/images/convertr_tablet.png' className='project-img' alt='Convertr App'/>
                 </div>
             </div>
             <div className={infoColClasses}>
@@ -47,8 +40,8 @@ const Project = props => {
                             Convertr is a simple, fast, and easy to use conversion app used to convert many different measurements, ranging anywhere from temperature to weight to speed.
                         </p>
                         <div className='buttons'>
-                            <a href='/' className='btn btn-outline-light demo-btn btn-margin'>Demo</a>
-                            <a href='https://github.com/leelandmiller/convertr' target='_blank' className="btn btn-outline-dark btn-margin">Github</a>
+                            <a href='/' target='_blank' rel='noopener noreferrer' className='btn btn-outline-light demo-btn btn-margin'>Demo</a>
+                            <a href='https://github.com/leelandmiller/convertr' target='_blank' rel='noopener noreferrer' className='btn btn-outline-dark btn-margin'>Github</a>
                         </div>
                     </div>
                 </div>

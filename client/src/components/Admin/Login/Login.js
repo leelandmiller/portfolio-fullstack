@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import Jumbotron from '../../Common/Jumbotron';
 import authAPI from '../../../utils/authAPI';
 import './Login.css';
 
 class Login extends Component {
     state = {
         email: '',
-        password: ''
+        password: '',
     }
 
     handleChange = event => {
@@ -27,24 +26,25 @@ class Login extends Component {
         }
 
         authAPI.loginUser(user.email, user.password).then(newUser => {
-            window.location = '/';
+            // window.location = '/admin';
+            this.props.changeLoggedInState();
         });
     }
 
     render() {
         return (
             <div>
-                <Jumbotron bg={'url(assets/images/admin_bg.jpg)'} page={'login'} />
+                {/* <Jumbotron bg={'url(assets/images/admin_bg.jpg)'} page={'login'} /> */}
                 <div className='container'>
                     <div className='row'>
                         <div className='col-md-6 ml-md-auto mr-md-auto'>
                             <form className='login-form'>
                                 <div className="form-group">
-                                    <label for="login-email">Email address</label>
+                                    <label htmlFor="login-email">Email address</label>
                                     <input type='email' name='email' value={this.state.email} className="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Email" onChange={this.handleChange}/>
                                 </div>
                                 <div className="form-group">
-                                    <label for="login-password">Password</label>
+                                    <label htmlFor="login-password">Password</label>
                                     <input type='password' name='password' value={this.state.password} className="form-control" id="login-password" placeholder="Password" onChange={this.handleChange}/>
                                 </div>
                                 <button onClick={this.handleBubmit} type="submit" className="btn btn-primary login-submit-btn">Submit</button>

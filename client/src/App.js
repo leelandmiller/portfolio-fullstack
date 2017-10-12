@@ -5,8 +5,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './components/Common/Nav/NavMain';
 import HomeMain from './components/Home/HomeMain';
 import PortfolioMain from './components/Portfolio/PortfolioMain';
-import Login from './components/Admin/Login';
-import Dashboard from './components/Admin/Dashboard';
+import AdminMain from './components/Admin/AdminMain';
+// import Login from './components/Admin/Login';
+// import Dashboard from './components/Admin/Dashboard';
 import Footer from './components/Common/Footer';
 
 import authAPI from './utils/authAPI';
@@ -30,15 +31,21 @@ class App extends Component {
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
 
-        authAPI.getCurrentUser().then(currentuser => {
-            console.log(currentuser);
+        this.checkIfLoggedIn();
+    }
 
+    checkIfLoggedIn = () => {
+        authAPI.getCurrentUser().then(currentuser => {
             if (currentuser.data) {
-                this.setState({
-                    isLoggedIn: true
-                });
+                this.changeLoggedInState();
             }
         });
+    }
+
+    changeLoggedInState = () => {
+        this.setState(prevState => ({
+            isLoggedIn: !prevState.isLoggedIn
+        }));
     }
 
     componentWillUnmount() {
@@ -100,7 +107,8 @@ class App extends Component {
                             <PortfolioMain />
                         )}/>
                         <Route exact path='/admin' render={() => (
-                            this.state.isLoggedIn ? <Dashboard/> : <Login/>
+                            <AdminMain isLoggedIn={this.state.isLoggedIn} changeLoggedInState={this.changeLoggedInState} />
+                            // this.state.isLoggedIn ? <Dashboard/> : <Login isLoggedIn={this.state.isLoggedIn}/>
                         )}/>
                     </div>
                 </Router>
