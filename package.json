@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"nodemon server.js\" \"cd client && npm start\""
+    "start": "node server.js",
+    "concur": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
+    "deploy": "npm run build && git add . && git commit -m \"Production Build\" && git push heroku master",
+    "build": "cd client && npm run build"
   },
   "keywords": [
     "mongodb",
