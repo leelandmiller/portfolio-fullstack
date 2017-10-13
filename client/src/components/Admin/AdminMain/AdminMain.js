@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Jumbotron from '../../Common/Jumbotron';
 import Login from '../Login';
-import Dashboard from '../Dashboard';
+import DashMain from '../Dashboard/DashMain';
 
 class AdminMain extends Component {
 
@@ -10,7 +10,7 @@ class AdminMain extends Component {
 
         if (isLoggedIn) {
             return (
-                <Dashboard />
+                <DashMain />
             );
         } else {
             return (
@@ -22,7 +22,7 @@ class AdminMain extends Component {
     render() {
         return (
             <div>
-                <Jumbotron bg={'url(assets/images/admin_bg.jpg)'} page={'dashboard'} />
+                <Jumbotron bg={'url(assets/images/admin_bg.jpg)'} page={this.props.isLoggedIn ? 'dashboard' : 'login'} />
                 {this.dashboard()}
             </div>
         );

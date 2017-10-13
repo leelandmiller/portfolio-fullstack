@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-// import Jumbotron from '../../Common/Jumbotron';
 
-class Dashboard extends Component {
+class DashMain extends Component {
 
     state = {
         email: '',
@@ -20,20 +19,11 @@ class Dashboard extends Component {
     handleBubmit = event => {
         event.preventDefault();
 
-        // const user = {
-        //     email: this.state.email,
-        //     password: this.state.password
-        // }
-
-        // authAPI.loginUser(user.email, user.password).then(newUser => {
-        //     window.location = '/admin';
-        // });
     }
 
     render() {
         return(
             <div>
-                {/* <Jumbotron bg={'url(assets/images/admin_bg.jpg)'} page={'dashboard'} /> */}
                 <div className='container'>
                     <div className='row'>
                         <div className='col-md-6 ml-md-auto mr-md-auto'>
@@ -57,4 +47,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+export default DashMain;
