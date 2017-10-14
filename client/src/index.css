@@ -50,10 +50,6 @@ body {
         margin-bottom: 40px;
     }
 
-    #skills-h1 {
-
-    }
-
     #front-end-info {
         text-align: left !important;
     }
@@ -64,5 +60,9 @@ body {
 
     .project-form {
         margin-top: 40px;
+    }
+
+    .my-name {
+        font-size: 5rem !important;
     }
 }

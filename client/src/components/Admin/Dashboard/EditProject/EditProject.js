@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './EditProject.css';
 
 class EditProject extends Component {
     state = {
@@ -8,8 +9,8 @@ class EditProject extends Component {
         demo: ''
     }
 
-    handleSubmit = event => {
-        //TODO: handle submit
+    saveEdits = event => {
+        //TODO: handle submit - call update method on API
     }
 
     handleChange = event => {
@@ -48,7 +49,8 @@ class EditProject extends Component {
                                 <label htmlFor='edit-demo-link'>Demo Link</label>
                                 <input type='text' name='demo' value={this.state.demo} className="form-control" id="edit-demo-link" aria-describedby="demoHelp" placeholder="Demo Link" onChange={this.handleChange}/>
                             </div>
-                            <button onClick={this.handleBubmit} type="submit" className="btn btn-primary login-submit-btn">Save</button>
+                            <button onClick={this.addProject} type="submit" className="btn btn-danger edit-submit-btn">DELETE</button>
+                            <button onClick={this.saveEdits} type="submit" className="btn btn-primary edit-submit-btn">Save</button>
                         </form>
                     </div>
                 </div>

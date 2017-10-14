@@ -2,9 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 import './Project.css';
 
-// TODO: setup classnames for columns, and project-info-container
-
-
 const Project = props => {
 
     const imgColClasses = classnames({
