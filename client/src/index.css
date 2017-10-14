@@ -61,4 +61,8 @@ body {
     #back-end-info {
         text-align: left;
     }
+
+    .project-form {
+        margin-top: 40px;
+    }
 }

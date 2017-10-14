@@ -1,0 +1,19 @@
+.dash-project {
+    /*border: 1px solid;*/
+    padding: 15px 5px;
+    margin: 10px 0px;
+}
+
+.edit-ic {
+    padding: 10px 20px 0px 0px;
+    color: #000;
+}
+
+.edit-ic:hover {
+    cursor: pointer;
+}
+
+.project-card-body {
+    margin-top: -10px !important;
+    padding-top: 0px;
+}

@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import DashProjectList from '../DashProjectList';
+import EditProject from '../EditProject';
+import AddProject from '../AddProject';
+import './DashMain.css';
 
 class DashMain extends Component {
 
     state = {
         email: '',
         password: '',
+        activeTab: 'edit',
+        selectedProject: ''
     }
 
     handleChange = event => {
@@ -21,24 +27,34 @@ class DashMain extends Component {
 
     }
 
+    selectProject = (projectId) => {
+        this.setState({
+            selectedProject: projectId
+        });
+    }
+
+    showEditProject = () => {
+        if (this.state.selectedProject) {
+            return (
+                <EditProject project={this.state.selectedProject} />
+            );
+        } else {
+            return (
+                <AddProject />
+            );
+        }
+    }
+
     render() {
         return(
-            <div>
+            <div className='admin-section'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-md-6 ml-md-auto mr-md-auto'>
-                            DASHBOARD
-                            <form className='login-form'>
-                                <div className="form-group">
-                                    <label htmlFor="login-email">Email address</label>
-                                    <input type='email' name='email' value={this.state.email} className="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Email" onChange={this.handleChange}/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="login-password">Password</label>
-                                    <input type='password' name='password' value={this.state.password} className="form-control" id="login-password" placeholder="Password" onChange={this.handleChange}/>
-                                </div>
-                                <button onClick={this.handleBubmit} type="submit" className="btn btn-primary login-submit-btn">Submit</button>
-                            </form>
+                        <div className='col-lg-4 col-md-6'>
+                            <DashProjectList selectProject={this.selectProject} />
+                        </div>
+                        <div className='col-lg-8 col-md-6'>
+                            {this.showEditProject()}
                         </div>
                     </div>
                 </div>
