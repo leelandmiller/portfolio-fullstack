@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './AddProject.css';
 
+import projectAPI from '../../../../utils/projectAPI';
+
 class AddProject extends Component {
 
     state = {
@@ -11,7 +13,10 @@ class AddProject extends Component {
     }
 
     addProject = event => {
-        //TODO: handle submit - call update method on API
+        //TODO: handle submit - call addProject method on API
+        projectAPI.addProject().then(newProject => {
+            //TODO: change app state - add the newProject and stuff
+        })
     }
 
     handleChange = event => {
@@ -33,7 +38,7 @@ class AddProject extends Component {
                 </div>
                 <div className='row'>
                     <div className='col'>
-                        <form>
+                        <form enctype='multipart/form-data'>
                             <div className="form-group">
                                 <label htmlFor='edit-title'>Title</label>
                                 <input type='text' name='title' value={this.state.title} className="form-control" id="edit-title" aria-describedby="titleHelp" placeholder="Project Title" onChange={this.handleChange}/>
@@ -49,6 +54,10 @@ class AddProject extends Component {
                             <div className="form-group">
                                 <label htmlFor='edit-demo-link'>Demo Link</label>
                                 <input type='text' name='demo' value={this.state.demo} className="form-control" id="edit-demo-link" aria-describedby="demoHelp" placeholder="Demo Link" onChange={this.handleChange}/>
+                            </div>
+                            <div class="form-group">
+                                <label for='file-upload'>Project Image</label>
+                                <input type='file' class='form-control-file' id='file-upload' name='file-upload'/>
                             </div>
                             <button onClick={this.addProject} type="submit" className="btn btn-primary edit-submit-btn">Save</button>
                         </form>
