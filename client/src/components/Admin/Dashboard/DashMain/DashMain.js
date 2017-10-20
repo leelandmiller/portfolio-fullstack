@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DashProjectList from '../DashProjectList';
 import EditProject from '../EditProject';
 import AddProject from '../AddProject';
+import projectAPI from '../../../../utils/projectAPI';
 import './DashMain.css';
 
 class DashMain extends Component {
@@ -10,7 +11,12 @@ class DashMain extends Component {
         email: '',
         password: '',
         activeTab: 'edit',
-        selectedProject: ''
+        selectedProject: '',
+        projects: []
+    }
+
+    componentDidMount() {
+        this.getProjects();
     }
 
     handleChange = event => {
@@ -22,9 +28,14 @@ class DashMain extends Component {
         });
     }
 
-    handleBubmit = event => {
-        event.preventDefault();
+    getProjects = () => {
+        projectAPI.getAllProjects().then(projectData => {
+            console.log(projectData);
 
+            this.setState({
+                projects: projectData.data
+            });
+        });
     }
 
     selectProject = (projectId) => {
@@ -51,7 +62,7 @@ class DashMain extends Component {
                 <div className='container'>
                     <div className='row'>
                         <div className='col-lg-4 col-md-6'>
-                            <DashProjectList selectProject={this.selectProject} />
+                            <DashProjectList projects={this.state.projects} selectProject={this.selectProject} />
                         </div>
                         <div className='col-lg-8 col-md-6'>
                             {this.showEditProject()}

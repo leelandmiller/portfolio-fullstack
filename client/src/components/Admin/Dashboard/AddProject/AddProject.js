@@ -9,14 +9,28 @@ class AddProject extends Component {
         title: '',
         description: '',
         github: '',
-        demo: ''
+        demo: '',
+        filename: ''
+    }
+
+    config = {
+        headers: { 'content-type': 'multipart/form-data' }
     }
 
     addProject = event => {
-        //TODO: handle submit - call addProject method on API
-        projectAPI.addProject().then(newProject => {
-            //TODO: change app state - add the newProject and stuff
-        })
+        event.preventDefault();
+        const image = document.querySelector('#image').files[0];
+
+        let formData = new FormData();
+        formData.append('image', image);
+        formData.append('title', this.state.title);
+        formData.append('description', this.state.description);
+        formData.append('github', this.state.github);
+        formData.append('demo', this.state.demo);
+
+        projectAPI.addProject(formData, this.config).then(results => {
+            console.log(results);
+        });
     }
 
     handleChange = event => {
@@ -28,7 +42,16 @@ class AddProject extends Component {
         });
     }
 
+    updateFileText = event => {
+        const val = event.target.files[0].name;
+
+        this.setState({
+            filename: val
+        });
+    }
+
     render() {
+
         return (
             <div className='project-form'>
                 <div className='row'>
@@ -38,7 +61,7 @@ class AddProject extends Component {
                 </div>
                 <div className='row'>
                     <div className='col'>
-                        <form enctype='multipart/form-data'>
+                        <form id='addProjectForm' onSubmit={this.addProject} encType='multipart/form-data'>
                             <div className="form-group">
                                 <label htmlFor='edit-title'>Title</label>
                                 <input type='text' name='title' value={this.state.title} className="form-control" id="edit-title" aria-describedby="titleHelp" placeholder="Project Title" onChange={this.handleChange}/>
@@ -55,11 +78,16 @@ class AddProject extends Component {
                                 <label htmlFor='edit-demo-link'>Demo Link</label>
                                 <input type='text' name='demo' value={this.state.demo} className="form-control" id="edit-demo-link" aria-describedby="demoHelp" placeholder="Demo Link" onChange={this.handleChange}/>
                             </div>
-                            <div class="form-group">
-                                <label for='file-upload'>Project Image</label>
-                                <input type='file' class='form-control-file' id='file-upload' name='file-upload'/>
+                            <div className='form-group'>
+                                <input type='file' name='image' id='image' className='inputfile' onChange={this.updateFileText} />
+                                <label htmlFor='image'>Choose an Image</label>
+                                <div>
+                                    <p>
+                                        {this.state.filename && 'File:'} {this.state.filename}
+                                    </p>
+                                </div>
                             </div>
-                            <button onClick={this.addProject} type="submit" className="btn btn-primary edit-submit-btn">Save</button>
+                            <button type="submit" className="btn btn-primary edit-submit-btn">Save</button>
                         </form>
                     </div>
                 </div>

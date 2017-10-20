@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Jumbotron from '../../Common/Jumbotron';
 import ProjectList from '../ProjectList';
+import projectAPI from '../../../utils/projectAPI';
 
-const PortfolioMain = props => {
-    return(
-        <div>
-            <Jumbotron bg={'url(assets/images/work_bg_2.jpeg)'} page={'my work'} />
-            <ProjectList />
-        </div>
-    );
+class PortfolioMain extends Component {
+    state = {
+        projects: {}
+    }
+
+    componentDidMount() {
+        this.getProjects();
+    }
+
+    getProjects = () => {
+        projectAPI.getAllProjects().then(projectData => {
+            console.log(projectData);
+
+            this.setState({
+                projects: projectData.data
+            });
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <Jumbotron bg={'url(assets/images/work_bg_2.jpeg)'} page={'my work'} />
+                <ProjectList />
+            </div>
+        );
+    }
 }
 
 export default PortfolioMain;

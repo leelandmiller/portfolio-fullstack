@@ -12,14 +12,12 @@ class DashProjectList extends Component {
                     </div>
                 </div>
                 <div className='row'>
-                    <div className='col-md-12 col-sm-6 col-xs-6'>
-                        {/*Map thru Project will go here*/}
-                        <DashProject selectProject={this.props.selectProject} />
-                    </div>
-                    <div className='col-md-12 col-sm-6 col-xs-6'>
-                        {/*Map thru Project will go here*/}
-                        <DashProject selectProject={this.props.selectProject} />
-                    </div>
+                    {this.props.projects.map(project => (
+                        <div key={project._id} className='col-md-12 col-sm-6 col-xs-6'>
+                            <DashProject project={project} selectProject={this.props.selectProject} />
+                        </div>
+                    ))}
+
                 </div>
             </div>
         );

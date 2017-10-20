@@ -1,39 +1,68 @@
-const multer = require('multer');
-const s3     = require('s3');
-const upload = multer({dest: '../uploads/'});
 const keys   = require('../config/keys').AWS_KEYS;
-const images = require('../config/images');
-const client = s3.createClient(images.s3Options);
+const path = require('path');
+const multer = require('multer');
+const fs = require('fs');
+const s3 = require('s3');
+const upload = multer({dest: 'uploads/'});
 
-const _uploadImage = function(file, done) {
-    let params = {
-        localFile: file.path,
-
-        s3Params: {
-            Bucket: keys.AWSBucket,
-            Key: file.originalname,
-            ACL: 'public-read'
-        }
-    };
-
-    let uploader = client.uploadFile(params);
-    uploader.on('error', function(err) {
-        console.error("unable to upload:", err.stack);
-    });
-    uploader.on('progress', function() {
-        console.log("progress", uploader.progressMd5Amount, uploader.progressAmount, uploader.progressTotal);
-    });
-    uploader.on('end', function() {
-        console.log("done uploading");
-        done();
-    });
-}
+const s3Options = require('../config/images').s3Options;
+const client = s3.createClient(s3Options);
+const { Project } = require('../models');
 
 module.exports = {
-    addProject: function(body, file, done) {
-        _uploadImage(file, () => {
-            // add project
-            done({ 'done': 'success' });
+    getAllProjects: function() {
+        return Project.find().then(projects => projects);
+    },
+    addProject: function(project, done) {
+
+        this._uploadFile(project.image, () => {
+            fs.unlink(path.resolve(__dirname, '../', project.image.path), (err) => {
+                if (err) throw err;
+                console.log('delete img success');
+            });
+            // build obj
+            const { title, description, github_url, demo_url, user } = project;
+            const photo_url = `${keys.BaseURL}${keys.AWSBucket}/${project.image.originalname}`;
+            const newProjectObj = {
+                title,
+                description,
+                github_url,
+                demo_url,
+                photo_url,
+                user
+            };
+
+            const newProject = new Project(newProjectObj);
+
+            newProject.save().then(project => {
+                done(project);
+            });
         });
     },
+    _uploadFile: function(image, done) {
+        let uploadParams = {
+            localFile: path.resolve(__dirname, '../', image.path),
+
+            s3Params: {
+                Bucket: keys.AWSBucket,
+                Key: image.originalname,
+                ACL: 'public-read'
+            }
+        };
+
+        let uploader = client.uploadFile(uploadParams);
+        uploader.on('error', (err) => {
+            console.error('unable to upload: ', err.stack);
+        });
+
+        uploader.on('progress', () => {
+            console.log('progress', uploader.progressMd5Amount, uploader.progressAmount, uploader.progressTotal);
+        });
+
+        uploader.on('end', () => {
+            console.log('done uploading');
+            done();
+        });
+
+    }
 };

@@ -1,3 +1,5 @@
+const keys = require('./keys').AWS_KEYS;
+
 const s3Options = {
     maxAsyncS3: 20, // this is the default
     s3RetryCount: 3, // this is the default

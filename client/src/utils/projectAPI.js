@@ -4,8 +4,8 @@ const projectAPI = {
     getAllProjects: function() {
         return axios.get('/api/allprojects');
     },
-    addProject: function(newProject) {
-        return axios.post('/api/newproject', { newProject });
+    addProject: function(project, config) {
+        return axios.post('/api/newproject', project, config);
     },
     editProject: function(projectId, projectEdits) {
         return axios.put(`/api/editproject/${projectId}`, { projectEdits });

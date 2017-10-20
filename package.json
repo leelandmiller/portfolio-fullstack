@@ -7,6 +7,7 @@
     "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "concurmon": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
     "concur": "concurrently \"node server.js\" \"cd client && npm start\"",
     "deploy": "yarn build && git add . && git commit -m \"Production Build\" && git push heroku master",
     "build": "cd client && npm run build"
@@ -20,6 +21,7 @@
   "author": "leelandmiller",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.134.0",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.1",

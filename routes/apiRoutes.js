@@ -1,25 +1,37 @@
 const express = require('express');
-const router  = new express.Router();
+const router = new express.Router();
+const multer = require('multer');
+const upload = multer({dest: 'uploads/'});
+const s3Options = require('../config/images').s3Options;
 
 const { projectController } = require('../controllers');
 
+
 router.get('/allprojects', (req, res) => {
-    res.json({
-        root: 'this will show all projects'
+    projectController.getAllProjects().then(projects => {
+        res.json(projects);
     });
 });
 
-router.post('/newproject', (req, res) => {
-    // will come in on req.body
+router.post('/newproject', upload.single('image'), (req, res) => {
 
-    projectController.addProject(req.body, req.file, (newProject) => {
+    const project = {
+        image: req.file,
+        title: req.body.title,
+        description: req.body.description,
+        github_url: req.body.github,
+        demo_url: req.body.demo,
+        user: req.user._id
+    }
+
+    projectController.addProject(project, (newProject) => {
         res.json(newProject);
     });
 });
 
 router.put('/editproject/:projectId', (req, res) => {
     //TODO: edit project - id on req.params, edits on req.body
-})
+});
 
 router.delete('/deleteproject/:projectId', (req, res) => {
     //TODO: delete project based on req.params.projectId
