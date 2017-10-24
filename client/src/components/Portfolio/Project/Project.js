@@ -4,6 +4,8 @@ import './Project.css';
 
 const Project = props => {
 
+    const project = props.project;
+
     const imgColClasses = classnames({
         'col-md-6': true,
         'order-1': !props.odd,
@@ -26,19 +28,17 @@ const Project = props => {
         <div className='row green-gradient project-container'>
             <div className={imgColClasses}>
                 <div className='project-img-container'>
-                    <img src='assets/images/convertr_tablet.png' className='project-img' alt='Convertr App'/>
+                    <img src={project.photo_url} className='project-img' alt={project.title}/>
                 </div>
             </div>
             <div className={infoColClasses}>
                 <div className={projectInfo}>
                     <div>
-                        <h1>Convertr</h1>
-                        <p>
-                            Convertr is a simple, fast, and easy to use conversion app used to convert many different measurements, ranging anywhere from temperature to weight to speed.
-                        </p>
+                        <h1>{project.title}</h1>
+                        <p>{project.description}</p>
                         <div className='buttons'>
-                            <a href='/' target='_blank' rel='noopener noreferrer' className='btn btn-outline-light demo-btn btn-margin'>Demo</a>
-                            <a href='https://github.com/leelandmiller/convertr' target='_blank' rel='noopener noreferrer' className='btn btn-outline-dark btn-margin'>Github</a>
+                            <a href={project.demo_url} target='_blank' rel='noopener noreferrer' className='btn btn-outline-light demo-btn btn-margin'>Demo</a>
+                            <a href={project.github_url} target='_blank' rel='noopener noreferrer' className='btn btn-outline-dark btn-margin'>Github</a>
                         </div>
                     </div>
                 </div>

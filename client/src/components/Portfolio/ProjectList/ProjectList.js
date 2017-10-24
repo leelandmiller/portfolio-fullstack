@@ -6,7 +6,9 @@ import './ProjectList.css';
 const ProjectList = props => {
     return (
         <div className='container-fluid'>
-            <Project odd={false} />
+            {props.projects.map((project, i) => (
+                <Project project={project} odd={i % 2} />
+            ))}
         </div>
     );
 }

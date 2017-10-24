@@ -5,7 +5,7 @@ import projectAPI from '../../../utils/projectAPI';
 
 class PortfolioMain extends Component {
     state = {
-        projects: {}
+        projects: []
     }
 
     componentDidMount() {
@@ -26,7 +26,7 @@ class PortfolioMain extends Component {
         return (
             <div>
                 <Jumbotron bg={'url(assets/images/work_bg_2.jpeg)'} page={'my work'} />
-                <ProjectList />
+                <ProjectList projects={this.state.projects} />
             </div>
         );
     }
