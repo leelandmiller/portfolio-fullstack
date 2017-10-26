@@ -26,7 +26,6 @@ class Login extends Component {
         }
 
         authAPI.loginUser(user.email, user.password).then(newUser => {
-            // window.location = '/admin';
             this.props.changeLoggedInState();
         });
     }

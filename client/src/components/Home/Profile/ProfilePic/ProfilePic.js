@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProfilePic.css';
 
-const ProfilePic = (props) => {
+const ProfilePic = props => {
     return (
         <div className="row justify-content-center">
             <div className="col-6">

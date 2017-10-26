@@ -21,7 +21,8 @@ router.post('/newproject', upload.single('image'), (req, res) => {
         description: req.body.description,
         github_url: req.body.github,
         demo_url: req.body.demo,
-        user: req.user._id
+        color: req.body.color,
+        user: req.user._id,
     }
 
     projectController.addProject(project, (newProject) => {

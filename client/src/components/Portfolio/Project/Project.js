@@ -24,8 +24,14 @@ const Project = props => {
         'text-left': props.odd
     });
 
+    const projectContainer = classnames({
+        'row': true,
+        'project-container': true,
+        [`${project.color}-gradient`]: true,
+    });
+
     return (
-        <div className='row green-gradient project-container'>
+        <div className={projectContainer}>
             <div className={imgColClasses}>
                 <div className='project-img-container'>
                     <img src={project.photo_url} className='project-img' alt={project.title}/>

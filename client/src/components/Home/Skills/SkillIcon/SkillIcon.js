@@ -4,7 +4,7 @@ import ReactTooltip from 'react-tooltip'
 
 import './SkillIcon.css';
 
-const SkillIcon = (props) => {
+const SkillIcon = props => {
 
     const { skill, index } = props;
 

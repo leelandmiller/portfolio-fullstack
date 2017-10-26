@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "better-react-spinkit": "^2.0.2",
     "classnames": "^2.2.5",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.3",

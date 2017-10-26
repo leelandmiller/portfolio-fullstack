@@ -3,7 +3,7 @@ import ProfilePic from '../ProfilePic';
 import ProfileSummary from '../ProfileSummary';
 import './ProfileMain.css';
 
-const ProfileMain = (props) => {
+const ProfileMain = props => {
     return (
         <section className="container profile-section">
             {/* Profile Image Component */}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './AddProject.css';
 
 import projectAPI from '../../../../utils/projectAPI';
@@ -10,11 +10,14 @@ class AddProject extends Component {
         description: '',
         github: '',
         demo: '',
-        filename: ''
+        filename: '',
+        color: 'green'
     }
 
     config = {
-        headers: { 'content-type': 'multipart/form-data' }
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
     }
 
     addProject = event => {
@@ -27,9 +30,12 @@ class AddProject extends Component {
         formData.append('description', this.state.description);
         formData.append('github', this.state.github);
         formData.append('demo', this.state.demo);
+        formData.append('color', this.state.color);
 
         projectAPI.addProject(formData, this.config).then(results => {
-            console.log(results);
+            this.props.updateProjects();
+
+            this.setState({title: '', description: '', github: '', demo: '', filename: ''});
         });
     }
 
@@ -37,17 +43,13 @@ class AddProject extends Component {
         const val = event.target.value;
         const name = event.target.name;
 
-        this.setState({
-            [name]: val
-        });
+        this.setState({[name]: val});
     }
 
     updateFileText = event => {
         const val = event.target.files[0].name;
 
-        this.setState({
-            filename: val
-        });
+        this.setState({filename: val});
     }
 
     render() {
@@ -78,12 +80,25 @@ class AddProject extends Component {
                                 <label htmlFor='edit-demo-link'>Demo Link</label>
                                 <input type='text' name='demo' value={this.state.demo} className="form-control" id="edit-demo-link" aria-describedby="demoHelp" placeholder="Demo Link" onChange={this.handleChange}/>
                             </div>
+                            <div className="form-group">
+                                <label htmlFor="edit-color">Example select</label>
+                                <select name='color' value={this.state.color} onChange={this.handleChange} className="form-control" id="edit-color">
+                                    <option value='green'>Green</option>
+                                    <option value='turquoise'>Turquoise</option>
+                                    <option value='blue'>Blue</option>
+                                    <option value='red'>Red</option>
+                                    <option value='purple'>Purple</option>
+                                    <option value='tan'>Tan</option>
+                                    <option value='salmon'>Salmon</option>
+                                </select>
+                            </div>
                             <div className='form-group'>
-                                <input type='file' name='image' id='image' className='inputfile' onChange={this.updateFileText} />
+                                <input type='file' name='image' id='image' className='inputfile' onChange={this.updateFileText}/>
                                 <label htmlFor='image'>Choose an Image</label>
                                 <div>
                                     <p>
-                                        {this.state.filename && 'File:'} {this.state.filename}
+                                        {this.state.filename && 'File:'}
+                                        {this.state.filename}
                                     </p>
                                 </div>
                             </div>

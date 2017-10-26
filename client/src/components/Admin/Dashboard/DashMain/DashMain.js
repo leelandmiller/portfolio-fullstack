@@ -30,8 +30,6 @@ class DashMain extends Component {
 
     getProjects = () => {
         projectAPI.getAllProjects().then(projectData => {
-            console.log(projectData);
-
             this.setState({
                 projects: projectData.data
             });
@@ -51,7 +49,7 @@ class DashMain extends Component {
             );
         } else {
             return (
-                <AddProject />
+                <AddProject updateProjects={this.getProjects} />
             );
         }
     }

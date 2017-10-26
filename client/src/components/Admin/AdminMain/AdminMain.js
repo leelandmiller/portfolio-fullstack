@@ -7,7 +7,6 @@ class AdminMain extends Component {
 
     dashboard = () => {
         let { isLoggedIn } = this.props;
-
         if (isLoggedIn) {
             return (
                 <DashMain />

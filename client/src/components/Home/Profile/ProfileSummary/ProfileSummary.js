@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProfileSummary = (props) => {
+const ProfileSummary = props => {
     return (
         <div className="row justify-content-center summary-row">
             <div className="col-lg-6">

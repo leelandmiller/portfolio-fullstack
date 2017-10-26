@@ -7,7 +7,7 @@ const ProjectList = props => {
     return (
         <div className='container-fluid'>
             {props.projects.map((project, i) => (
-                <Project project={project} odd={i % 2} />
+                <Project key={project._id} project={project} odd={i % 2} />
             ))}
         </div>
     );

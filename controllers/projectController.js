@@ -1,4 +1,4 @@
-const keys   = require('../config/keys').AWS_KEYS;
+// const keys   = require('../config/keys').AWS_KEYS;
 const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
@@ -21,14 +21,15 @@ module.exports = {
                 console.log('delete img success');
             });
             // build obj
-            const { title, description, github_url, demo_url, user } = project;
-            const photo_url = `${keys.BaseURL}${keys.AWSBucket}/${project.image.originalname}`;
+            const { title, description, github_url, demo_url, color, user } = project;
+            const photo_url = `${process.env.BaseURL}${process.env.AWS_BUCKET}/${project.image.originalname}`;
             const newProjectObj = {
                 title,
                 description,
                 github_url,
                 demo_url,
                 photo_url,
+                color,
                 user
             };
 
@@ -44,7 +45,7 @@ module.exports = {
             localFile: path.resolve(__dirname, '../', image.path),
 
             s3Params: {
-                Bucket: keys.AWSBucket,
+                Bucket: process.env.AWS_BUCKET,
                 Key: image.originalname,
                 ACL: 'public-read'
             }
