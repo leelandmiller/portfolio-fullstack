@@ -6,10 +6,17 @@ const s3Options = require('../config/images').s3Options;
 
 const { projectController } = require('../controllers');
 
-
 router.get('/allprojects', (req, res) => {
     projectController.getAllProjects().then(projects => {
         res.json(projects);
+    });
+});
+
+router.get('/project/:id', (req, res) => {
+    const _id = req.params.id;
+    
+    projectController.getProject(_id).then(project => {
+        res.json(project);
     });
 });
 

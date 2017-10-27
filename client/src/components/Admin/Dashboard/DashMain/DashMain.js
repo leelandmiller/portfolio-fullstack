@@ -36,9 +36,11 @@ class DashMain extends Component {
         });
     }
 
-    selectProject = (projectId) => {
-        this.setState({
-            selectedProject: projectId
+    selectProject = projectId => {
+        projectAPI.getProject(projectId).then(project => {
+            this.setState({
+                selectedProject: project
+            });
         });
     }
 

@@ -4,6 +4,9 @@ const projectAPI = {
     getAllProjects: function() {
         return axios.get('/api/allprojects');
     },
+    getProject: function(projectId) {
+        return axios.get(`/api/project/${projectId}`);
+    },
     addProject: function(project, config) {
         return axios.post('/api/newproject', project, config);
     },
