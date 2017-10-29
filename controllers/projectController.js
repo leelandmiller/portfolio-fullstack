@@ -79,12 +79,11 @@ module.exports = {
             const newProjectObj = _buildNewProject(project);
 
             _saveNewProject(newProjectObj).then(project => {
-                done(project);
+                done({ project, success: true });
+            }).catch(err => {
+                done({ err, success: false });
             });
-            // const newProject = new Project(newProjectObj);
-            // newProject.save().then(project => {
-            //     done(project);
-            // });
+
         });
     },
 };

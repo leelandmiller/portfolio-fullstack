@@ -17,7 +17,7 @@ class PortfolioMain extends Component {
             console.log(projectData);
 
             this.setState({
-                projects: projectData.data
+                projects: projectData.data.reverse()
             });
         });
     }

@@ -11,7 +11,8 @@ class AddProject extends Component {
         github: '',
         demo: '',
         filename: '',
-        color: 'green'
+        color: 'green',
+        resMsg: ''
     }
 
     config = {
@@ -35,6 +36,9 @@ class AddProject extends Component {
         projectAPI.addProject(formData, this.config).then(results => {
             this.props.updateProjects();
 
+            console.log(results);
+            this.setResMsg(results.data.success);
+
             this.setState({title: '', description: '', github: '', demo: '', filename: ''});
         });
     }
@@ -43,13 +47,27 @@ class AddProject extends Component {
         const val = event.target.value;
         const name = event.target.name;
 
-        this.setState({[name]: val});
+        this.setState({ [name]: val });
     }
 
     updateFileText = event => {
         const val = event.target.files[0].name;
 
         this.setState({filename: val});
+    }
+
+    setResMsg = msg => {
+        let msgText;
+        if (msg) {
+            msgText = 'Success';
+        } else {
+            msgText = 'Failed';
+        }
+        this.setState({ resMsg: msgText });
+
+        setTimeout(() => {
+            this.setState({ resMsg: '' });
+        }, 3000);
     }
 
     render() {
@@ -104,6 +122,9 @@ class AddProject extends Component {
                             </div>
                             <button type="submit" className="btn btn-primary edit-submit-btn">Save</button>
                         </form>
+                        <div className={this.state.resMsg === 'Success' ? 'resMsgSuccess' : 'resMsgFail'}>
+                            {this.state.resMsg}
+                        </div>
                     </div>
                 </div>
             </div>
