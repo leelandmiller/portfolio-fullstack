@@ -25,7 +25,7 @@ class Login extends Component {
             password: this.state.password
         }
 
-        authAPI.loginUser(user.email, user.password).then(newUser => {
+        authAPI.addUser(user).then(newUser => {
             this.props.changeLoggedInState();
         });
     }
