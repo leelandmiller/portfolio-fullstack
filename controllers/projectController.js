@@ -1,4 +1,3 @@
-const keys   = require('../config/keys').AWS_KEYS;
 const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
