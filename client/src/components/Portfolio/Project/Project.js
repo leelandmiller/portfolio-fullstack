@@ -30,6 +30,17 @@ const Project = props => {
         [`${project.color}-gradient`]: true,
     });
 
+    const breakline = description => {
+        let splitText = description.replace(/\n/g, '<br/>');
+        let br = React.createElement('br');
+        let regex = /(<br\/>)/g;
+
+
+        return splitText.split(regex).map((line, index) => {
+            return line.match(regex) ? <br key={`key_${index}`} /> : line;
+        });
+    }
+
     return (
         <div className={projectContainer}>
             <div className={imgColClasses}>
@@ -41,7 +52,7 @@ const Project = props => {
                 <div className={projectInfo}>
                     <div>
                         <h1>{project.title}</h1>
-                        <p>{project.description}</p>
+                        <p>{breakline(project.description)}</p>
                         <div className='buttons'>
                             <a href={project.demo_url} target='_blank' rel='noopener noreferrer' className='btn btn-outline-light demo-btn btn-margin'>Demo</a>
                             <a href={project.github_url} target='_blank' rel='noopener noreferrer' className='btn btn-outline-dark btn-margin'>Github</a>

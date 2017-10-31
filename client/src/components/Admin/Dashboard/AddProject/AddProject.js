@@ -23,7 +23,7 @@ class AddProject extends Component {
 
     addProject = event => {
         event.preventDefault();
-        const image = document.querySelector('#image').files[0];
+        const image = document.querySelector('#add-image').files[0];
 
         let formData = new FormData();
         formData.append('image', image);
@@ -84,23 +84,23 @@ class AddProject extends Component {
                         <form id='addProjectForm' onSubmit={this.addProject} encType='multipart/form-data'>
                             <div className="form-group">
                                 <label htmlFor='edit-title'>Title</label>
-                                <input type='text' name='title' value={this.state.title} className="form-control" id="edit-title" aria-describedby="titleHelp" placeholder="Project Title" onChange={this.handleChange}/>
+                                <input type='text' name='title' value={this.state.title} className="form-control" id="add-title" aria-describedby="titleHelp" placeholder="Project Title" onChange={this.handleChange}/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="edit-description">Description</label>
-                                <textarea className="form-control" id="edit-description" placeholder='Description' rows='3' value={this.state.description} name='description' onChange={this.handleChange}></textarea>
+                                <label htmlFor="add-description">Description</label>
+                                <textarea className="form-control" id="add-description" placeholder='Description' rows='3' value={this.state.description} name='description' onChange={this.handleChange}></textarea>
                             </div>
                             <div className="form-group">
-                                <label htmlFor='edit-github-link'>Github Link</label>
-                                <input type='text' name='github' value={this.state.github} className="form-control" id="edit-github-link" aria-describedby="githubHelp" placeholder="Github Link" onChange={this.handleChange}/>
+                                <label htmlFor='add-github-link'>Github Link</label>
+                                <input type='text' name='github' value={this.state.github} className="form-control" id="add-github-link" aria-describedby="githubHelp" placeholder="Github Link" onChange={this.handleChange}/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor='edit-demo-link'>Demo Link</label>
-                                <input type='text' name='demo' value={this.state.demo} className="form-control" id="edit-demo-link" aria-describedby="demoHelp" placeholder="Demo Link" onChange={this.handleChange}/>
+                                <label htmlFor='add-demo-link'>Demo Link</label>
+                                <input type='text' name='demo' value={this.state.demo} className="form-control" id="add-demo-link" aria-describedby="demoHelp" placeholder="Demo Link" onChange={this.handleChange}/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="edit-color">Example select</label>
-                                <select name='color' value={this.state.color} onChange={this.handleChange} className="form-control" id="edit-color">
+                                <label htmlFor="add-color">Select Color</label>
+                                <select name='color' value={this.state.color} onChange={this.handleChange} className="form-control" id="add-color">
                                     <option value='green'>Green</option>
                                     <option value='turquoise'>Turquoise</option>
                                     <option value='blue'>Blue</option>
@@ -111,8 +111,8 @@ class AddProject extends Component {
                                 </select>
                             </div>
                             <div className='form-group'>
-                                <input type='file' name='image' id='image' className='inputfile' onChange={this.updateFileText}/>
-                                <label htmlFor='image'>Choose an Image</label>
+                                <input type='file' name='image' id='add-image' className='inputfile' onChange={this.updateFileText}/>
+                                <label htmlFor='add-image'>Choose an Image</label>
                                 <div>
                                     <p>
                                         {this.state.filename && 'File:'}
@@ -120,7 +120,7 @@ class AddProject extends Component {
                                     </p>
                                 </div>
                             </div>
-                            <button type="submit" className="btn btn-primary edit-submit-btn">Save</button>
+                            <button type="submit" className="btn btn-primary add-submit-btn">Save</button>
                         </form>
                         <div className={this.state.resMsg === 'Success' ? 'resMsgSuccess' : 'resMsgFail'}>
                             {this.state.resMsg}

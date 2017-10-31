@@ -1,3 +1,7 @@
+#add-description {
+    white-space: pre-wrap;
+}
+
 .inputfile {
     width: 0.1px;
     height: 0.1px;

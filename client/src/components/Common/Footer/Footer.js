@@ -3,7 +3,7 @@ import './Footer.css';
 
 const Footer = props => {
     return (
-        <footer className="container-fluid bg-primary footer-height footer-margin">
+        <footer className="container-fluid bg-primary footer-height">
             <div className="row h-100 align-items-center">
                 <div className="col">
                     <ul className="nav justify-content-center align-items-center align-self-center">

@@ -1,12 +1,12 @@
 /** ENV VARIABLES **/
 // require('dotenv').config();
-
+const keys       = require('./config/keys');
 const express    = require('express');
 const bodyParser = require('body-parser');
 const mongoose   = require('mongoose');
 const passport   = require('passport');
 const session    = require('cookie-session');
-const secret     = process.env.SESSION_SECRET;
+const secret     = process.env.SESSION_SECRET || keys.SESSION_SECRET;
 const routes     = require('./routes/routes');
 const { User }   = require('./models');
 
@@ -44,6 +44,7 @@ passport.deserializeUser(function(user, done) {
 });
 /**__ END PASSPORT __**/
 const mongodbURI = process.env.NODE_ENV === 'production' ? process.env.MONGODB_URI : 'mongodb://localhost/myportfolio';
+console.log(mongodbURI)
 /**__ MONGODB __**/
 mongoose.Promise = Promise;
 mongoose.connect(mongodbURI, {

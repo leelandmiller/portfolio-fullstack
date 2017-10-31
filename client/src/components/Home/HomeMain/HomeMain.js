@@ -5,6 +5,7 @@ import ProfileMain from '../Profile/ProfileMain';
 import SectionBreaker from '../../Common/SectionBreaker';
 import SkillsMain from '../Skills/SkillsMain';
 import Availability from '../Availability';
+import './HomeMain.css';
 
 const HomeMain = props => {
 
@@ -27,7 +28,7 @@ const HomeMain = props => {
     ];
 
     return (
-        <div>
+        <div className='footer-space'>
             <Jumbotron bg={'url(assets/images/coding.jpg)'} page={'leeland'} />
             <Divider />
             <ProfileMain/>

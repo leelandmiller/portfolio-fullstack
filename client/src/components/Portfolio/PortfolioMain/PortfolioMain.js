@@ -14,8 +14,6 @@ class PortfolioMain extends Component {
 
     getProjects = () => {
         projectAPI.getAllProjects().then(projectData => {
-            console.log(projectData);
-
             this.setState({
                 projects: projectData.data.reverse()
             });
