@@ -1,17 +1,16 @@
 /** ENV VARIABLES **/
-// require('dotenv').config();
-const keys       = require('./config/keys');
+require('dotenv').config();
+const ENV = process.env.NODE_ENV || 'development';
 const express    = require('express');
 const bodyParser = require('body-parser');
 const mongoose   = require('mongoose');
 const passport   = require('passport');
 const session    = require('cookie-session');
-const secret     = process.env.SESSION_SECRET || keys.SESSION_SECRET;
+const secret     = process.env.SESSION_SECRET;
 const routes     = require('./routes/routes');
 const { User }   = require('./models');
 
 const PORT = process.env.PORT || 3001;
-const ENV = process.env.NODE_ENV || 'development';
 const app  = express();
 
 app.use(bodyParser.json());

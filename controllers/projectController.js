@@ -14,7 +14,7 @@ function _uploadFile(image, done) {
         localFile: path.resolve(__dirname, '../', image.path),
 
         s3Params: {
-            Bucket: process.env.AWS_BUCKET || keys.AWSBucket,
+            Bucket: process.env.AWS_BUCKET,
             Key: image.originalname,
             ACL: 'public-read'
         }
@@ -38,7 +38,7 @@ function _uploadFile(image, done) {
 function _buildNewProject(project) {
     // build obj
     const { title, description, github_url, demo_url, color, user } = project;
-    const photo_url = `${process.env.BaseURL || keys.BaseURL}${process.env.AWS_BUCKET || keys.AWSBucket}/${project.image.originalname}`;
+    const photo_url = `${process.env.BaseURL}${process.env.AWS_BUCKET}/${project.image.originalname}`;
 
     const newProjectObj = {
         title,

@@ -1,5 +1,3 @@
-const keys = require('./keys').AWS_KEYS;
-
 const s3Options = {
     maxAsyncS3: 20, // this is the default
     s3RetryCount: 3, // this is the default
@@ -7,8 +5,8 @@ const s3Options = {
     multipartUploadThreshold: 20971520, // this is the default (20 MB)
     multipartUploadSize: 15728640, // this is the default (15 MB)
     s3Options: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID || keys.AWSAccessKeyId,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || keys.AWSSecretAccessKey
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     }
 }
 
