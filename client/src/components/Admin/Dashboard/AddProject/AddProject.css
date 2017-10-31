@@ -2,6 +2,14 @@
     white-space: pre-wrap;
 }
 
+.add-submit-btn:hover {
+    cursor: pointer;
+}
+
+.add-submit-btn {
+    margin: 0px 10px;
+}
+
 .inputfile {
     width: 0.1px;
     height: 0.1px;
