@@ -54,9 +54,6 @@ class App extends Component {
 
     handleScroll = event => {
 
-        // console.log(window.scrollY);
-        // document.documentElement.scrollTop
-
         if (window.scrollY > 150) {
             // toggle state for nav
             if (this.state.navIsTransparent) {
@@ -111,7 +108,6 @@ class App extends Component {
                         )}/>
                         <Route exact path='/admin' render={() => (
                             <AdminMain isLoggedIn={this.state.isLoggedIn} changeLoggedInState={this.changeLoggedInState} />
-                            // this.state.isLoggedIn ? <Dashboard/> : <Login isLoggedIn={this.state.isLoggedIn}/>
                         )}/>
                     </div>
                 </Router>
