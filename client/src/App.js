@@ -6,8 +6,7 @@ import Nav from './components/Common/Nav/NavMain';
 import HomeMain from './components/Home/HomeMain';
 import PortfolioMain from './components/Portfolio/PortfolioMain';
 import AdminMain from './components/Admin/AdminMain';
-// import Login from './components/Admin/Login';
-// import Dashboard from './components/Admin/Dashboard';
+import ContactMain from './components/Contact/ContactMain';
 import Footer from './components/Common/Footer';
 
 import authAPI from './utils/authAPI';
@@ -19,13 +18,14 @@ class App extends Component {
         navIsTransparent: true,
         menu1Check: false,
         menu2Check: false,
-        isLoggedIn: false
+        isLoggedIn: false,
+        showModal: false,
     }
 
     navLinks = [
         { 'name': 'About', 'url': '/' },
         { 'name': 'Work', 'url': '/work' },
-        { 'name': 'Contact', 'url': '/' },
+        { 'name': 'Contact', 'url': '/contact' },
     ]
 
     componentDidMount() {
@@ -101,10 +101,16 @@ class App extends Component {
                                 navIsTransparent={this.state.navIsTransparent}
                                 menu1Check={this.state.menu1Check}
                                 menu2Check={this.state.menu2Check}
+                                showModal={this.state.showModal}
+                                openModal={this.openModal}
+                                closeModal={this.closeModal}
                             />
                         )}/>
                         <Route exact path='/work' render={() => (
                             <PortfolioMain />
+                        )}/>
+                        <Route exact path='/contact' render={() => (
+                            <ContactMain />
                         )}/>
                         <Route exact path='/admin' render={() => (
                             <AdminMain isLoggedIn={this.state.isLoggedIn} changeLoggedInState={this.changeLoggedInState} />

@@ -39,7 +39,10 @@ const HomeMain = props => {
                 menu1Check={props.menu1Check}
                 menu2Check={props.menu2Check} />
             <SectionBreaker />
-            <Availability />
+            <Availability
+                showModal={props.showModal}
+                openModal={props.openModal}
+                closeModal={props.closeModal} />
         </div>
     );
 }

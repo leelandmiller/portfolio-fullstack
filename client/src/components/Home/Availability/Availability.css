@@ -5,3 +5,7 @@
 #message-me-btn {
     margin-top: .5rem;
 }
+
+#message-me-btn:hover {
+    cursor: pointer;
+}

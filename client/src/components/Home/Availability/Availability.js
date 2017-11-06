@@ -18,7 +18,7 @@ const Availability = props => {
             </div>
             <div className="row">
                 <div className="col  d-flex justify-content-center">
-                    <a href="" id='message-me-btn' className="btn btn-primary">
+                    <a href='/contact' id='message-me-btn' className="btn btn-primary">
                         <span className="ion-ios-email"></span> Message Me
                     </a>
                 </div>

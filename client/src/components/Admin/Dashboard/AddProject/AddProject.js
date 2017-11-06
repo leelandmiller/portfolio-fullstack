@@ -35,10 +35,8 @@ class AddProject extends Component {
 
         projectAPI.addProject(formData, this.config).then(results => {
             this.props.updateProjects();
-
-            console.log(results);
             this.setResMsg(results.data.success);
-
+            
             this.setState({title: '', description: '', github: '', demo: '', filename: ''});
         });
     }

@@ -21,12 +21,7 @@ require('./services/passport');
 
 // app.set('trust proxy', 1);
 // session secret
-app.use(session({
-    secret,
-    // resave: false,
-    // saveUninitialized: true,
-    // cookie: { secure: true }
-}));
+app.use(session({ secret }));
 
 app.use(passport.initialize());
 app.use(passport.session());
