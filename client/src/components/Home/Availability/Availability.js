@@ -6,23 +6,25 @@ const Availability = props => {
         <section className="container about-section">
             <div className="row">
                 <div className="col">
-                    <h2 className="text-center text-primary">I'm Available.</h2>
+                    <h2 className="text-center text-primary">Currently Employed.</h2>
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-6 ml-auto mr-auto">
                     <p id="contact-me-p" className="text-center">
-                        I am available for freelance work, contract work, and full-time employment. If you like what you see and want to hire me, shoot me an email!
+                        I am currently employed full time as a Junior Software Engineer at Unibui. Currently,
+                        my responsibilities are primarily front-end; creating reusable, dynamic, and
+                        interactive UI's.
                     </p>
                 </div>
             </div>
-            <div className="row">
+            {/* <div className="row">
                 <div className="col  d-flex justify-content-center">
                     <a href='/contact' id='message-me-btn' className="btn btn-primary">
                         <span className="ion-ios-email"></span> Message Me
                     </a>
                 </div>
-            </div>
+            </div> */}
         </section>
     )
 }

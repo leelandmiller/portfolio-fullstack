@@ -46,7 +46,7 @@ const SkillTree = props => {
             </div>
             <div className={infoColClasses}>
                 <div id={`${props.type}-end-info`}>
-                    <h3 className="skill-heading text-second">{props.type === 'front' ? 'Front End' : 'Back End'}</h3>
+                    <h3 className="skill-heading text-primary">{props.type === 'front' ? 'Front End' : 'Back End'}</h3>
                     <p>
                         {
                             props.type === 'front' ?

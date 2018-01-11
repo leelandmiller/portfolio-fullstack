@@ -7,7 +7,7 @@ const ProfileSummary = props => {
                 <h2 className="text-center text-primary">Hello.</h2>
                 <p id="about-me-p" className="text-center">
                     My name's Leeland. <br/>
-                    I'm a full stack web developer with the skills & knowledge necessary to create user-friendly, interactive, & fun web applications. I'm a quick learner, hard worker, & comfortable working both with a team and independently. I'm currently seeking full-time employment as a full stack web developer. Based in the SF Bay Area.
+                    I'm a full stack web developer with the skills & knowledge necessary to create user-friendly, interactive, & fun web applications. I'm a quick learner, hard worker, & truly dedicated to my craft. The SF Bay Area is my current home base.
                 </p>
             </div>
         </div>
